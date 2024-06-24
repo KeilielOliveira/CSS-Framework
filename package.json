@@ -1,0 +1,38 @@
+{
+  "name": "css-framework",
+  "version": "1.0.0",
+  "description": "Um framework css proprio para fins de aprofundamento em estilização com css e sass.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeilielOliveira/CSS-Framework.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "javascript",
+    "mobile first",
+    "webpack",
+    "node"
+  ],
+  "author": "Keiliel Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KeilielOliveira/CSS-Framework/issues"
+  },
+  "homepage": "https://github.com/KeilielOliveira/CSS-Framework#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.1",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

@@ -1,0 +1,11 @@
+//Resete padrão dos estilos do navegador.
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//Definindo height do body e html.
+html, body {
+    height: 100%;
+}
