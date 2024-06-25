@@ -57,3 +57,68 @@ h6 {
     font-weight: bold;
     color: var(--black-color-200);
 }
+
+//Resetes dos elementos de texto.
+p, span {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.25rem;
+    color: var(--black-color-100);
+}
+
+//Resetes dos elementos de botão.
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+    display: inline-block;
+    border: 1px solid var(--black-color-100);
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 5px 8px;
+    cursor: pointer;
+
+    //Evento de hover.
+    &:hover {
+        background-color: var(--white-color-300);
+    }
+}
+
+//Resetes dos elementos de links.
+a {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--black-color-300);
+    text-underline-offset: .25rem;
+
+    //Evento de hover.
+    &:hover {
+        color: var(--gray-color-800);
+    }
+}
+
+//Resetes do elementos de formularios.
+input, textarea {
+    display: block;
+    font-size: 1rem;
+    background-color: var(--white-color-200);
+    color: var(--black-color-100);
+    padding: 8px 5px;
+    border: 1px solid var(--black-color-300);
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+input[type="color"], input[type="file"], input[type="image"], input[type="radio"] {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 150px;
+}
