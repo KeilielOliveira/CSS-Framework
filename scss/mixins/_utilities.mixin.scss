@@ -1,5 +1,7 @@
 @use '../config/config' as config;
 
+//@todo Adicionar validação de entrada.
+
 @mixin make-utilities-class($utilities-maps) {
 
     @each $key, $utilitie-map in $utilities-maps {
