@@ -1,3 +1,13 @@
+@use '../mixins/variables.mixin' as variables-mixin;
+@use '../config/colors.config' as color-config;
+
+//Variaveis css usadas.
+:root{
+    @include variables-mixin.make-css-variables( color-config.$defautl-white-colors-map );
+    @include variables-mixin.make-css-variables( color-config.$default-gray-colors-map );
+    @include variables-mixin.make-css-variables( color-config.$default-black-colors-map );
+}
+
 //Resete padrão dos estilos do navegador.
 * {
     margin: 0;

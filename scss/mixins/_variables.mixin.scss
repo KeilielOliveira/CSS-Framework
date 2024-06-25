@@ -1,3 +1,4 @@
+//Gera variaveis css com base no mapa passado.
 @mixin make-css-variables($variables-map, $variable-name-prefix: '') {
 
     @if type-of($variables-map) == map {
