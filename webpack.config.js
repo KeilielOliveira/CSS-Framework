@@ -5,7 +5,8 @@ const RemoveEmptyScriptsPlugin   = require('webpack-remove-empty-scripts');
 
 //Pontos de entrada dos arquivos compilados pelo webpack.
 const entrys = {
-    'style': { import: './scss/style.scss', filename: 'bundle/[name].bundle.js' },
+    'style': { import: './scss/style.scss', filename: '[name].bundle.js' },
+    'mixins.test': { import: './scss/tests/_mixins.test.scss', filename: '[name].bundle.js' },
 };
 
 module.exports = {

@@ -1,0 +1,1 @@
+{"version":3,"file":"../tests/css/mixins.test.css","mappings":"AAAA;EACE,qBAAqB;EACrB,iCAAiC;AACnC,C","sources":["webpack://css-framework/./scss/tests/_mixins.test.scss"],"sourcesContent":[":root {\n  --test-variable: none;\n  --test-prefix-test-variable: none;\n}"],"names":[],"sourceRoot":""}

@@ -1,0 +1,20 @@
+@use '../mixins/variables.mixin' as variables-mixin;
+
+//Teste do mixin de geração de variaveis css.
+
+//Mapa de variaveis para testes.
+$variables-map: (
+    'test-variable': none,
+);
+
+:root {
+    //teste de geração de variaveis css sem prefixo de nome.
+    @include variables-mixin.make-css-variables($variables-map);
+
+    //teste de geração de variaveis css com prefixo de nome.
+    @include variables-mixin.make-css-variables($variables-map, 'test-prefix');
+
+    //teste de geração de variaveis css com mapa invalido.
+    //@include variables-mixin.make-css-variables(false); //Gera um erro proposital.
+}
+

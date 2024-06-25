@@ -1,0 +1,18 @@
+@mixin make-css-variables($variables-map, $variable-name-prefix: '') {
+
+    @if type-of($variables-map) == map {
+        //Se for um mapa valido.
+
+        //Monta o prefixo do nome da variavel.
+        $variable-name-prefix: if($variable-name-prefix != '', $variable-name-prefix + '-', '');
+        @each $varible-name, $variables-value in $variables-map {
+            //Percorre o mapa de variaveis.
+
+            $name: $variable-name-prefix + $varible-name; //Monta o nome completo da variavel.
+            --#{ $name }: #{ $variables-value }; //Defini a variavel.
+        }
+    }@else {
+        //Se não for um mapa valido.
+        @error "O @mixin make-css-variables aceita somente mapas, e não " + type-of($variables-map);
+    }
+}
