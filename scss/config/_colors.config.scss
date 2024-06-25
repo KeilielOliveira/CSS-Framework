@@ -1,0 +1,47 @@
+//Tons de branco
+$default-white-color-100: #ffffff !default;
+$default-white-color-200: #f5f5f5 !default;
+$default-white-color-300: #ededed !default;
+
+//Tons de cinza.
+$default-gray-color-100: #dddddd !default;
+$default-gray-color-200: #cbcbcb !default;
+$default-gray-color-300: #bcbcbc !default;
+$default-gray-color-400: #acacac !default;
+$default-gray-color-500: #9c9c9c !default;
+$default-gray-color-600: #8c8c8c !default;
+$default-gray-color-700: #797979 !default;
+$default-gray-color-800: #696969 !default;
+$default-gray-color-900: #555555 !default;
+
+//Tons de preto.
+$default-black-color-100: #3b3b3b !default;
+$default-black-color-200: #2d2d2d !default;
+$default-black-color-300: #232323 !default;
+
+//Mapa de tons de branco.
+$defautl-white-colors-map: (
+    'white-color-100': $default-white-color-100,
+    'white-color-200': $default-white-color-200,
+    'white-color-300': $default-white-color-300
+);
+
+//Mapa de tons de cinza.
+$default-gray-colors-map: (
+    'gray-color-100': $default-gray-color-100,
+    'gray-color-200': $default-gray-color-200,
+    'gray-color-300': $default-gray-color-300,
+    'gray-color-400': $default-gray-color-400,
+    'gray-color-500': $default-gray-color-500,
+    'gray-color-600': $default-gray-color-600,
+    'gray-color-700': $default-gray-color-700,
+    'gray-color-800': $default-gray-color-800,
+    'gray-color-900': $default-gray-color-900,
+);
+
+//Mapa de tons de preto.
+$default-black-colors-map: (
+    'black-color-100': $default-black-color-100,
+    'black-color-200': $default-black-color-200,
+    'black-color-300': $default-black-color-300,
+);
