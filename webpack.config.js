@@ -1,10 +1,11 @@
 const path = require('path');
 const MiniCssExtrctPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const RemoveEmptyScriptsPlugin   = require('webpack-remove-empty-scripts');
 
 //Pontos de entrada dos arquivos compilados pelo webpack.
 const entrys = {
-    'style': { import: './scss/style.scss', filename: 'bundle/style.bundle.js' },
+    'style': { import: './scss/style.scss', filename: 'bundle/[name].bundle.js' },
 };
 
 module.exports = {
@@ -37,6 +38,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new RemoveEmptyScriptsPlugin(),
         new MiniCssExtrctPlugin({
             filename: (pathData) => {
                 if(/\.test$/.test(pathData.chunk.name)) {
