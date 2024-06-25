@@ -1,4 +1,5 @@
 @use '../mixins/variables.mixin' as variables-mixin;
+@use '../mixins/utilities.mixin' as utilities-mixin;
 
 //Teste do mixin de geração de variaveis css.
 
@@ -18,3 +19,45 @@ $variables-map: (
     //@include variables-mixin.make-css-variables(false); //Gera um erro proposital.
 }
 
+
+//Testes do mixin de geração de classes utilitarias.
+
+//teste com valores sendo passados como mapa e sem nome de classe definido.
+@include utilities-mixin.make-utilities-class((
+    'display': (
+        'property': display,
+        'values': (
+            'block': block,
+            'iniline-block': inline-block,
+            'flex': flex
+        )
+    )
+));
+
+//teste com valores sendo passados como string, nome de classe definido e use-values como true.
+@include utilities-mixin.make-utilities-class((
+    'display': (
+        'property': display,
+        'class': d,
+        'values': block inline-block flex,
+        'use-values': true
+    )
+));
+
+//teste com valores sendo passados como lista, nome de classe vazio e use-values como false.
+@include utilities-mixin.make-utilities-class((
+    'margin': (
+        'property': margin,
+        'values': (10px, 20px, 30px),
+    )
+));
+
+//teste com o responsivo como true.
+@include utilities-mixin.make-utilities-class((
+    'display': (
+        'property': display,
+        'values': block inline-block flex,
+        'use-values': true,
+        'responsive': true
+    )
+));
