@@ -24,7 +24,7 @@ $defautl-white-colors-map: (
     'white-color-100': $default-white-color-100,
     'white-color-200': $default-white-color-200,
     'white-color-300': $default-white-color-300
-);
+) !default;
 
 //Mapa de tons de cinza.
 $default-gray-colors-map: (
@@ -37,11 +37,11 @@ $default-gray-colors-map: (
     'gray-color-700': $default-gray-color-700,
     'gray-color-800': $default-gray-color-800,
     'gray-color-900': $default-gray-color-900,
-);
+) !default;
 
 //Mapa de tons de preto.
 $default-black-colors-map: (
     'black-color-100': $default-black-color-100,
     'black-color-200': $default-black-color-200,
     'black-color-300': $default-black-color-300,
-);
+) !default;

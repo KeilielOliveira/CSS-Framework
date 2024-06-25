@@ -1,5 +1,6 @@
 @use '../mixins/variables.mixin' as variables-mixin;
 @use '../config/colors.config' as color-config;
+@use '../config/sizes.config' as sizes-config;
 
 //Variaveis css usadas.
 :root{
@@ -18,4 +19,41 @@
 //Definindo height do body e html.
 html, body {
     height: 100%;
+}
+
+//Resete de elementos de titulo.
+h1 {
+    font-size: nth(sizes-config.$default-title-sizes, 1);
+    font-weight: bold;
+    color: var(--black-color-200);
+}
+
+h2 {
+    font-size: nth(sizes-config.$default-title-sizes, 2);
+    font-weight: bold;
+    color: var(--black-color-200);
+}
+
+h3 {
+    font-size: nth(sizes-config.$default-title-sizes, 3);
+    font-weight: bold;
+    color: var(--black-color-200);
+}
+
+h4 {
+    font-size: nth(sizes-config.$default-title-sizes, 4);
+    font-weight: bold;
+    color: var(--black-color-200);
+}
+
+h5 {
+    font-size: nth(sizes-config.$default-title-sizes, 5);
+    font-weight: bold;
+    color: var(--black-color-200);
+}
+
+h6 {
+    font-size: nth(sizes-config.$default-title-sizes, 6);
+    font-weight: bold;
+    color: var(--black-color-200);
 }
