@@ -7,6 +7,7 @@ const RemoveEmptyScriptsPlugin   = require('webpack-remove-empty-scripts');
 const entrys = {
     'style': { import: './scss/style.scss', filename: '[name].bundle.js' },
     'mixins.test': { import: './scss/tests/_mixins.test.scss', filename: '[name].bundle.js' },
+    'functions.test': { import: './scss/tests/_functions.test.scss', filename: '[name].bundle.js' },
 };
 
 module.exports = {

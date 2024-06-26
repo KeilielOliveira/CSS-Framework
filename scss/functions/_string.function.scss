@@ -1,0 +1,18 @@
+@function replace($string, $search, $replace: "", $replace-all: true) {
+
+    $new-string: ""; //String final a ser retornada.
+    $str-index: str-index($string, $search);
+    @if $str-index {
+        //Se a string possui o search.
+
+        $before-string: str-slice($string, 1, $str-index - 1); //Pega a parte anterior ao termo.
+        $after-string: str-slice($string, $str-index + str-length($search)); //Pega a parte após o termo.
+        $new-string: $before-string + $replace + $after-string; //Monta a nova string.
+    }
+
+    //Se for para substituir todas as ocorrencias.
+    @if str-index($new-string, $search) and $replace-all {
+        $new-string: replace($new-string, $search, $replace, $replace-all);
+    }
+    @return $new-string; //Retorna a string final.
+}

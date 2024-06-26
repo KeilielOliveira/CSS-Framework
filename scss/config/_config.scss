@@ -1,4 +1,5 @@
 @use 'utilities.config' as utilities-config;
+@use '../functions/map.function' as map;
 
 //Pontos onde o responsivo é ativado.
 $responsive-breakpoints: (
@@ -8,8 +9,14 @@ $responsive-breakpoints: (
     'xl': 1200px
 ) !default;
 
+//Configurações de prefixos.
+$prefix-map: (
+    'negative-prefix': '-n',
+) !default;
+
 //Mapa de utilitarios.
-$utilities-maps: map-merge(
+$utilities-maps: map.merge(
     utilities-config.$spacing-utilities,
     utilities-config.$typography-utilities,
+    utilities-config.$position-utilities,
 );

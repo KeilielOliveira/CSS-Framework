@@ -1,0 +1,14 @@
+@use '../functions/string.function' as string;
+
+//Testes da função replace() do arquivo _string.function.scss
+$string: string.replace('Hallo', 'a', 'e'); //Resultado esperado: Hello
+@debug $string;
+
+$string: string.replace('Hekko', 'k', 'l'); //Resultado esperado: Hello
+@debug $string;
+
+$string: string.replace('Hekko', 'k', 'l', false); //Resultado esperado: Helko
+@debug $string;
+
+$string: string.replace('Helloaaaa', 'a'); //Resultado esperado: Hello
+@debug $string;

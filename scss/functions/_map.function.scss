@@ -1,0 +1,37 @@
+
+
+//Unifica multiplos mapas.
+@function merge($maps...) {
+
+    $merged-map: (); //Mapa resultante.
+    $first-merge: true; //Defini se é o primeiro merge.
+    @each $map in $maps {
+        //Percorre cada mapa passado.
+
+        @if $first-merge {
+            //Se ainda está no primeiro mapa.
+            $merged-map: $map;
+            $first-merge: false;
+        }@else {
+            //Se já passou do primeiro mapa.
+            $merged-map: map-merge($merged-map, $map);
+        }
+    }
+    @return $merged-map; //Retorna o mapa resultante.
+}
+
+
+//Converte os valores e chaves de um mapa para o negativo.
+@function convert-to-negative($map) {
+
+    $new-map: (); //O mapa convertido.
+    $negative-prefix: map-get(config.$prefix-map, 'negative-prefix'); //Prefixo de negatividade.
+    @each $map-key, $map-value in $map {
+        //Percorre o mapa.
+
+        $map-key: $negative-prefix + '-' + $map-key; //Adiciona o prefixo negativo a chave.
+        $map-value: '-' + $map-value; //Converte o valor para negativo.
+        $new-map: map-merge($new-map, ( $map-key: $map-value )); //Monta o novo mapa.
+    }
+    @return $new-map; //Retorna o mapa com valores negativos.
+}

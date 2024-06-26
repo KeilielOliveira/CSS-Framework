@@ -150,3 +150,32 @@ $typography-utilities: (
         'values': size-config.$default-text-underline-offset-map,
     )
 );
+
+//Utilitarios de posicionamento.
+$position-utilities: (
+    'position': (
+        'property': position,
+        'values': relative absolute fixed,
+        'use-values': true
+    ),
+    'top': (
+        'property': top,
+        'values': size-config.$default-position-spacers,
+        'responsive': true
+    ),
+    'right': (
+        'property': right,
+        'values': size-config.$default-position-spacers,
+        'responsive': true
+    ),
+    'bottom': (
+        'property': bottom,
+        'values': size-config.$default-position-spacers,
+        'responsive': true
+    ),
+    'left': (
+        'property': left,
+        'values': size-config.$default-position-spacers,
+        'responsive': true
+    )
+)
