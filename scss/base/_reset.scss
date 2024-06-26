@@ -60,9 +60,9 @@ h6 {
 
 //Resetes dos elementos de texto.
 p, span {
-    font-size: 1rem;
+    font-size: sizes-config.$default-font-size;
     font-weight: normal;
-    line-height: 1.25rem;
+    line-height: sizes-config.$default-line-height;
     color: var(--black-color-100);
 }
 

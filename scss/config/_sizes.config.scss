@@ -1,2 +1,86 @@
 //Tamanhos de fontes de titulos.
-$default-title-sizes: (3rem, 2.75rem, 2.5rem, 2.25rem, 2rem, 1.75rem);
+$default-title-sizes: (3rem, 2.75rem, 2.5rem, 2.25rem, 2rem, 1.75rem) !default;
+
+//Base do espaçamento para propriedades de espáçamento.
+$default-spacer: 10px !default;
+$default-spacers: (
+    0: 0,
+    1: $default-spacer * 1,
+    2: $default-spacer * 2,
+    3: $default-spacer * 3,
+    4: $default-spacer * 4,
+    5: $default-spacer * 5,
+    6: $default-spacer * 6,
+    7: $default-spacer * 7,
+    8: $default-spacer * 8,
+    9: $default-spacer * 9,
+    10: $default-spacer * 10,
+) !default;
+
+$default-y-spacers: (
+    0: 0,
+    1: $default-spacer * 1 0,
+    2: $default-spacer * 2 0,
+    3: $default-spacer * 3 0,
+    4: $default-spacer * 4 0,
+    5: $default-spacer * 5 0,
+    6: $default-spacer * 6 0,
+    7: $default-spacer * 7 0,
+    8: $default-spacer * 8 0,
+    9: $default-spacer * 9 0,
+    10: $default-spacer * 10 0,
+) !default;
+
+$default-x-spacers: (
+    0: 0,
+    1: 0 $default-spacer * 1,
+    2: 0 $default-spacer * 2,
+    3: 0 $default-spacer * 3,
+    4: 0 $default-spacer * 4,
+    5: 0 $default-spacer * 5,
+    6: 0 $default-spacer * 6,
+    7: 0 $default-spacer * 7,
+    8: 0 $default-spacer * 8,
+    9: 0 $default-spacer * 9,
+    10: 0 $default-spacer * 10,
+) !default;
+
+//Tamanhos de fontes.
+$default-font-size: 1rem !default;
+$default-font-sizes: (
+    1: $default-font-size * .85,
+    2: $default-font-size,
+    3: $default-font-size * 1.30,
+    4: $default-font-size * 1.60,
+    5: $default-font-size * 2
+) !default;
+
+//Tamanhos de line height.
+$default-line-height: 1.25rem !default;
+$default-line-heights: (
+    1: $default-line-height,
+    2: $default-line-height * 1.25,
+    3: $default-line-height * 1.5,
+    4: $default-line-height * 1.75,
+    5: $default-line-height * 2
+) !default;
+
+//Grossura das linhas do text-decoration.
+$default-text-decoration-thickness: .1rem !default;
+$default-text-decoration-thickness-map: (
+    1: $default-text-decoration-thickness,
+    2: $default-text-decoration-thickness * 2.5,
+    3: $default-text-decoration-thickness * 5,
+    4: $default-text-decoration-thickness * 7.5,
+    5: $default-text-decoration-thickness * 10,
+) !default;
+
+//Espaçamento das linhas do text-decoration.
+$default-text-underline-offset: .25rem !default;
+$default-text-underline-offset-map: (
+    1: $default-text-underline-offset,
+    2: $default-text-underline-offset * 2,
+    3: $default-text-underline-offset * 3,
+    4: $default-text-underline-offset * 4,
+    5: $default-text-underline-offset * 5
+) !default;

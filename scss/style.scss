@@ -1,5 +1,10 @@
 //Dependencias.
-
+@use 'mixins/utilities.mixin' as utilities-mixin;
+@use 'config/config' as config;
 
 //Resete padrão dos elementos.
 @use 'base/reset';
+
+
+//Classes utilitarias.
+@include utilities-mixin.make-utilities-class(config.$utilities-maps);

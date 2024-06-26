@@ -1,0 +1,152 @@
+@use 'sizes.config' as size-config;
+
+//Mapa de utilitarios de espaçamento.
+$spacing-utilities: (
+    'margin': (
+        'property': margin,
+        'class': 'm',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'margin-top': (
+        'property': margin-top,
+        'class': 'mt',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'margin-right': (
+        'property': margin-right,
+        'class': 'mr',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'margin-bottom': (
+        'property': margin-bottom,
+        'class': 'mb',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'margin-left': (
+        'property': margin-left,
+        'class': 'ml',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'margin-y': (
+        'property': margin,
+        'class': 'my',
+        'values': map-merge(size-config.$default-y-spacers, ( 'auto': auto 0 )),
+        'responsive': true
+    ),
+    'margin-x': (
+        'property': margin,
+        'class': 'mx',
+        'values': map-merge(size-config.$default-x-spacers, ( 'auto': 0 auto )),
+        'responsive': true
+    ),
+    'padding': (
+        'property': padding,
+        'class': 'p',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'padding-top': (
+        'property': padding-top,
+        'class': 'pt',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'padding-right': (
+        'property': padding-right,
+        'class': 'pr',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'padding-bottom': (
+        'property': padding-bottom,
+        'class': 'pb',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'padding-left': (
+        'property': padding-left,
+        'class': 'pl',
+        'values': map-merge(size-config.$default-spacers, ( 'auto': auto )),
+        'responsive': true
+    ),
+    'padding-y': (
+        'property': padding,
+        'class': 'py',
+        'values': map-merge(size-config.$default-y-spacers, ( 'auto': auto 0 )),
+        'responsive': true
+    ),
+    'padding-x': (
+        'property': padding,
+        'class': 'px',
+        'values': map-merge(size-config.$default-x-spacers, ( 'auto': 0 auto )),
+        'responsive': true
+    )
+);
+
+//Mapa de utilitarios de tipografia.
+$typography-utilities: (
+    'font-size': (
+        'property': font-size,
+        'class': 'fs',
+        'values': size-config.$default-font-sizes,
+        'responsive': true
+    ),
+    'text-align': (
+        'property': text-align,
+        'class': 'text',
+        'values': left center right justify,
+        'use-values': true,
+        'responsive': true
+    ),
+    'line-height': (
+        'property': line-height,
+        'values': size-config.$default-line-heights,
+        'responsive': true
+    ),
+    'font-weight': (
+        'property': font-weight,
+        'values': light lighter normal bold bolder,
+        'use-values': true
+    ),
+    'font-style': (
+        'property': font-style,
+        'values': normal italic oblique,
+        'use-values': true
+    ),
+    'text-decoration': (
+        'property': text-decoration,
+        'values': none overline line-through underline,
+        'use-values': true
+    ),
+    'text-transform': (
+        'property': text-transform,
+        'values': uppercase lowercase capitalize,
+        'use-values': true
+    ),
+    'text-wrap': (
+        'property': text-wrap,
+        'values': wrap nowrap balance pretty,
+        'use-values': true
+    ),
+    'text-decoration-style': (
+        'property': text-decoration-style,
+        'class': 'decoration-style',
+        'values': solid double dotted dashed wavy,
+        'use-values': true
+    ),
+    'text-decoration-thickness': (
+        'property': text-decoration-thickness,
+        'class': 'decoration-thickness',
+        'values': size-config.$default-text-decoration-thickness-map,
+    ),
+    'text-underline-offset': (
+        'property': text-underline-offset,
+        'class': 'underline-offset',
+        'values': size-config.$default-text-underline-offset-map,
+    )
+);

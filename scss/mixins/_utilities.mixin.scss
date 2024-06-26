@@ -7,63 +7,73 @@
     @each $key, $utilitie-map in $utilities-maps {
         //Percorre cada mapa de utilitario.
 
-        //Recupera as configurações de geração da classe.
-        $accepted-property-values-types: (list, string); //Tipos de valores de propriedade aceitos.
-        $css-property: map-get($utilitie-map, 'property'); //Propriedade css da classe de utilitario.
-        $base-class-name: if(map-has-key($utilitie-map, 'class'), map-get($utilitie-map, 'class'), $css-property); //Base do nome da classe utilitaria.
-        $property-values: map-get($utilitie-map, 'values'); //Valores da propriedade css.
-        $responsive: if(map-has-key($utilitie-map, 'responsive'), map-get($utilitie-map, 'responsive'), false); //Defini se deve ou não ser gerada versões responsivas das classes.
+        //Lida com os erros.
+        @if type-of($utilitie-map) != map and $utilitie-map != null {
+            //Se for um utilitario invalido.
+            @error 'O mapa individual do utilitario deve ser um mapa ou null, e não ' + type-of($utilitie-map);
 
-        @if type-of($property-values) == map {
-            //Se os valores da propriedade css foram passados como mapa.
+        }@else if type-of($utilitie-map) == map {
+            //Se for um utilitario valido.
 
-            @each $class-sufix, $property-value in $property-values {
-                //Percorre o mapa com os valores da propriedade css.
+            //Recupera as configurações de geração da classe.
+            $accepted-property-values-types: (list, string); //Tipos de valores de propriedade aceitos.
+            $css-property: map-get($utilitie-map, 'property'); //Propriedade css da classe de utilitario.
+            $base-class-name: if(map-has-key($utilitie-map, 'class'), map-get($utilitie-map, 'class'), $css-property); //Base do nome da classe utilitaria.
+            $property-values: map-get($utilitie-map, 'values'); //Valores da propriedade css.
+            $responsive: if(map-has-key($utilitie-map, 'responsive'), map-get($utilitie-map, 'responsive'), false); //Defini se deve ou não ser gerada versões responsivas das classes.
 
-                $class: $base-class-name + '-' + $class-sufix; //Monta o nome completo da classe.
-                .#{ $class } {
-                    #{ $css-property }: #{ $property-value };
+            @if type-of($property-values) == map {
+                //Se os valores da propriedade css foram passados como mapa.
+
+                @each $class-sufix, $property-value in $property-values {
+                    //Percorre o mapa com os valores da propriedade css.
+
+                    $class: $base-class-name + '-' + $class-sufix; //Monta o nome completo da classe.
+                    .#{ $class } {
+                        #{ $css-property }: #{ $property-value };
+                    }
+                }
+            }@else if index($accepted-property-values-types, type-of($property-values)) {
+                //Se os valores da propriedade foram passados como lista ou string.
+
+                //Se for uma string, converte para uma lista.
+                @if type-of($property-values) == string {
+                    $property-values: zip($property-values);
+                }
+
+                $use-values: if(map-has-key($utilitie-map, 'use-values'), map-get($utilitie-map, 'use-values'), false); //Defini se os valores da propriedade devem compor parte do nome.
+                $loop-index: 0; //Indice do loop.
+
+                @each $property-value in $property-values {
+                    //Percorre cada valor de propriedade da lista.
+
+                    $loop-index: $loop-index + 1; //Incrementa o indice do loop.
+                    $class: $base-class-name + '-' + if($use-values, $property-value, $loop-index); //Monta o nome da classe.
+                    .#{ $class } {
+                        #{ $css-property }: #{ $property-value };
+                    }
                 }
             }
-        }@else if index($accepted-property-values-types, type-of($property-values)) {
-            //Se os valores da propriedade foram passados como lista ou string.
 
-            //Se for uma string, converte para uma lista.
-            @if type-of($property-values) == string {
-                $property-values: zip($property-values);
-            }
+            //Monta o responsivo das classes.
+            @if $responsive {
+                //Se for para gerar classes responsivas.
 
-            $use-values: if(map-has-key($utilitie-map, 'use-values'), map-get($utilitie-map, 'use-values'), false); //Defini se os valores da propriedade devem compor parte do nome.
-            $loop-index: 0; //Indice do loop.
+                @each $breakpoint-sufix, $breakpoint in config.$responsive-breakpoints {
+                    //Percorre cada breakpoint.
 
-            @each $property-value in $property-values {
-                //Percorre cada valor de propriedade da lista.
+                    //Configura as classes.
+                    $utilitie-map: map-remove($utilitie-map, 'responsive'); //Remove a configuração de responsivo.
+                    $utilitie-map: map-merge($utilitie-map, ( 'class': $base-class-name + '-' + $breakpoint-sufix )); //Adiciona o sufixo do responsivo ao nome da classe.
 
-                $loop-index: $loop-index + 1; //Incrementa o indice do loop.
-                $class: $base-class-name + '-' + if($use-values, $property-value, $loop-index); //Monta o nome da classe.
-                .#{ $class } {
-                    #{ $css-property }: #{ $property-value };
+                    //Media query do responsivo.
+                    @media screen and (min-width: #{ $breakpoint }) {
+                        
+                        @include make-utilities-class(( $css-property: $utilitie-map )); //Gera a versão responsiva da classe.
+                    }
                 }
             }
-        }
 
-        //Monta o responsivo das classes.
-        @if $responsive {
-            //Se for para gerar classes responsivas.
-
-            @each $breakpoint-sufix, $breakpoint in config.$responsive-breakpoints {
-                //Percorre cada breakpoint.
-
-                //Configura as classes.
-                $utilitie-map: map-remove($utilitie-map, 'responsive'); //Remove a configuração de responsivo.
-                $utilitie-map: map-merge($utilitie-map, ( 'class': $base-class-name + '-' + $breakpoint-sufix )); //Adiciona o sufixo do responsivo ao nome da classe.
-
-                //Media query do responsivo.
-                @media screen and (min-width: #{ $breakpoint }) {
-                    
-                    @include make-utilities-class(( $css-property: $utilitie-map )); //Gera a versão responsiva da classe.
-                }
-            }
         }
     }
 }
