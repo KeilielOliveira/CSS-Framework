@@ -1,4 +1,6 @@
+@use '../config/config' as config;
 @use '../functions/string.function' as string;
+@use '../functions/map.function' as map;
 
 //Testes da função replace() do arquivo _string.function.scss
 $string: string.replace('Hallo', 'a', 'e'); //Resultado esperado: Hello
@@ -12,3 +14,21 @@ $string: string.replace('Hekko', 'k', 'l', false); //Resultado esperado: Helko
 
 $string: string.replace('Helloaaaa', 'a'); //Resultado esperado: Hello
 @debug $string;
+
+//Testes do metodo merge() do arquivo _map.function.scss
+//Resultado esperado: Um unico mapa contendo todos os mapas passados.
+$merged-map: map.merge(('first-map': true), ('second-map': true)); 
+@debug $merged-map;
+
+$merged-map: map.merge(('first-map': true), ('second-map': true), ('third-map': true));
+@debug $merged-map;
+
+//Testes do metodo convert-to-negative() do arquivo _map.functions.scss
+//Resultado esperado: Um mapa onde as chaves iniciam com o prefixo passado e os valores são negativos.
+$map: (
+    'small': 10px,
+    'normal': 50px,
+    'large': 100px
+); //Mapa com os valores a serem convertidos.
+$negative-map: map.convert-to-negative($map, map-get(config.$prefix-map, 'negative-prefix'));
+@debug $negative-map;

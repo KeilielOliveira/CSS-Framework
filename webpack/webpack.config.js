@@ -3,18 +3,13 @@ const MiniCssExtrctPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const RemoveEmptyScriptsPlugin   = require('webpack-remove-empty-scripts');
 
-//Pontos de entrada dos arquivos compilados pelo webpack.
-const entrys = {
-    'style': { import: './scss/style.scss', filename: '[name].bundle.js' },
-    'mixins.test': { import: './scss/tests/_mixins.test.scss', filename: '[name].bundle.js' },
-    'functions.test': { import: './scss/tests/_functions.test.scss', filename: '[name].bundle.js' },
-};
-
 module.exports = {
     mode: 'production',
-    entry: entrys,
+    entry: {
+        'style': { import: './scss/style.scss', filename: '[name].bundle.js' }
+    },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, './dist'),
         clean: true
     },
     devtool: 'source-map',

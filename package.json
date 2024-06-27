@@ -5,9 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch"
-  },
+    "build": "webpack --config ./webpack/webpack.config.js",
+    "watch": "webpack --watch --config ./webpack/webpack.config.js",
+    "sass-tests": "webpack --config ./webpack/webpack.tests.config.js",
+    "sass-functions-test": "webpack --config ./webpack/webpack.tests.config.js --entry-reset --entry ./scss/tests/_functions.test.scss --output-filename functions.test.css",
+    "sass-mixins-test": "webpack --config ./webpack/webpack.tests.config.js --entry-reset --entry ./scss/tests/_mixins.test.scss --output-filename mixins.test.css",
+    "watch-sass-tests": "webpack --watch --config ./webpack/webpack.tests.config.js",
+    "watch-sass-functions-test": "webpack --watch --config ./webpack/webpack.tests.config.js --entry-reset --entry ./scss/tests/_functions.test.scss --output-filename functions.test.css",
+    "watch-sass-mixins-test": "webpack --watch --config ./webpack/webpack.tests.config.js --entry-reset --entry ./scss/tests/_mixins.test.scss --output-filename mixins.test.css"
+  }, 
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KeilielOliveira/CSS-Framework.git"

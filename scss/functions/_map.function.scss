@@ -1,5 +1,3 @@
-
-
 //Unifica multiplos mapas.
 @function merge($maps...) {
 
@@ -22,10 +20,8 @@
 
 
 //Converte os valores e chaves de um mapa para o negativo.
-@function convert-to-negative($map) {
-
+@function convert-to-negative($map, $negative-prefix: '-n') {
     $new-map: (); //O mapa convertido.
-    $negative-prefix: map-get(config.$prefix-map, 'negative-prefix'); //Prefixo de negatividade.
     @each $map-key, $map-value in $map {
         //Percorre o mapa.
 
