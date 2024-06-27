@@ -191,4 +191,32 @@ $position-utilities: (
     'values': map.convert-to-negative(size-config.$default-position-spacers, false),
     'responsive': true
     )
-)
+);
+
+//Utilitarios de transformação.
+$transform-utilites: (
+    'translate': (
+        'property': transform,
+        'class': 'translate',
+        'values': (
+            '50': 'translate(-50%, -50%)'
+        ),
+        'responsive': true
+    ),
+    'translate-y': (
+        'property': transform,
+        'class': 'translate-y',
+        'values': (
+            '50': 'translateY(-50%)'
+        ),
+        'responsive': true
+    ),
+    'translate-x': (
+        'property': transform,
+        'class': 'translate-x',
+        'values': (
+            '50': 'translateX(-50%)'
+        ),
+        'responsive': true
+    )
+);
