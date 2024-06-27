@@ -1,4 +1,3 @@
-@use '../config/config' as config;
 @use '../functions/string.function' as string;
 @use '../functions/map.function' as map;
 
@@ -22,17 +21,3 @@ $merged-map: map.merge(('first-map': true), ('second-map': true));
 
 $merged-map: map.merge(('first-map': true), ('second-map': true), ('third-map': true));
 @debug $merged-map;
-
-//Testes do metodo convert-to-negative() do arquivo _map.functions.scss
-//Resultado esperado: Um mapa onde as chaves iniciam com o prefixo passado e os valores são negativos.
-$map: (
-    'small': 10px,
-    'normal': 50px,
-    'large': 100px
-); //Mapa com os valores a serem convertidos.
-$negative-map: map.convert-to-negative($map, true, map-get(config.$prefix-map, 'negative-prefix'));
-@debug $negative-map;
-
-//Resultado esperado: Um mapa onde somente os valores são convertidos para negativos.
-$negative-map: map.convert-to-negative($map, false, map-get(config.$prefix-map, 'negative-prefix'));
-@debug $negative-map;

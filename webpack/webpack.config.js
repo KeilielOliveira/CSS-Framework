@@ -37,28 +37,10 @@ module.exports = {
     plugins: [
         new RemoveEmptyScriptsPlugin(),
         new MiniCssExtrctPlugin({
-            filename: (pathData) => {
-                if(/\.test$/.test(pathData.chunk.name)) {
-                    //Se for um arquivo de testes scss.
-
-                    return '../tests/css/[name].css';
-                }else {
-                    //Se for um arquivo padrão scss.
-                    return 'css/[name].css';
-                }
-            }
+            filename: '[name].css'
         }),
         new MiniCssExtrctPlugin({
-            filename: (pathData) => {
-                if(/\.test$/.test(pathData.chunk.name)) {
-                    //Se for um arquivo de testes scss.
-
-                    return '../tests/css/[name].css';
-                }else {
-                    //Se for um arquivo padrão scss.
-                    return 'css/[name].min.css';
-                }
-            }
+            filename: '[name].min.css'
         }),
     ],
     optimization: {

@@ -1,3 +1,5 @@
+@use 'string.function' as string;
+
 //Unifica multiplos mapas.
 @function merge($maps...) {
 
@@ -16,18 +18,4 @@
         }
     }
     @return $merged-map; //Retorna o mapa resultante.
-}
-
-
-//Converte os valores e chaves de um mapa para o negativo.
-@function convert-to-negative($map, $convert-keys: true, $negative-prefix: '-n') {
-    $new-map: (); //O mapa convertido.
-    @each $map-key, $map-value in $map {
-        //Percorre o mapa.
-
-        $map-key: if($convert-keys, $negative-prefix + '-' + $map-key, $map-key); //Adiciona o prefixo negativo a chave.
-        $map-value: '-' + $map-value; //Converte o valor para negativo.
-        $new-map: map-merge($new-map, ( $map-key: $map-value )); //Monta o novo mapa.
-    }
-    @return $new-map; //Retorna o mapa com valores negativos.
 }

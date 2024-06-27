@@ -1,4 +1,4 @@
-@use '../config/config' as config;
+@use '../config/sizes.config' as sizes-config;
 
 //@todo Adicionar validação de entrada.
 
@@ -59,7 +59,7 @@
             @if $responsive {
                 //Se for para gerar classes responsivas.
 
-                @each $breakpoint-sufix, $breakpoint in config.$responsive-breakpoints {
+                @each $breakpoint-sufix, $breakpoint in sizes-config.$responsive-breakpoints {
                     //Percorre cada breakpoint.
 
                     //Configura as classes.
