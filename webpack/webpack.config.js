@@ -9,7 +9,7 @@ module.exports = {
         'style': { import: './scss/style.scss', filename: '[name].bundle.js' }
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, '../dist'),
         clean: true
     },
     devtool: 'source-map',

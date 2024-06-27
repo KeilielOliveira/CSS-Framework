@@ -30,5 +30,9 @@ $map: (
     'normal': 50px,
     'large': 100px
 ); //Mapa com os valores a serem convertidos.
-$negative-map: map.convert-to-negative($map, map-get(config.$prefix-map, 'negative-prefix'));
+$negative-map: map.convert-to-negative($map, true, map-get(config.$prefix-map, 'negative-prefix'));
+@debug $negative-map;
+
+//Resultado esperado: Um mapa onde somente os valores são convertidos para negativos.
+$negative-map: map.convert-to-negative($map, false, map-get(config.$prefix-map, 'negative-prefix'));
 @debug $negative-map;

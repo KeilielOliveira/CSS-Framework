@@ -1,4 +1,5 @@
 @use 'sizes.config' as size-config;
+@use '../functions/map.function' as map;
 
 //Mapa de utilitarios de espaçamento.
 $spacing-utilities: (
@@ -163,6 +164,12 @@ $position-utilities: (
         'values': size-config.$default-position-spacers,
         'responsive': true
     ),
+    'negative-top': (
+    'property': top,
+    'class': '-n-top',
+    'values': map.convert-to-negative(size-config.$default-position-spacers, false),
+    'responsive': true
+    ),
     'right': (
         'property': right,
         'values': size-config.$default-position-spacers,
@@ -177,5 +184,11 @@ $position-utilities: (
         'property': left,
         'values': size-config.$default-position-spacers,
         'responsive': true
+    ),
+    'negative-left': (
+    'property': left,
+    'class': '-n-left',
+    'values': map.convert-to-negative(size-config.$default-position-spacers, false),
+    'responsive': true
     )
 )
